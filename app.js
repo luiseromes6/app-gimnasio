@@ -1,3 +1,9 @@
+window.addEventListener("load", () => {
+  const splash = document.getElementById("splash");
+  if (splash) splash.style.display = "none";
+});
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const API_URL = "https://script.google.com/macros/s/AKfycbxrqBeCGLCwC2G_2lC_jD34yfnvM5gXRYYL1t_CZ_q7C8KayqAJwBzsS24goNPll8Sk/exec"; // pega aquí tu URL de Apps Script
