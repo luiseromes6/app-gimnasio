@@ -43,6 +43,15 @@
     </section>
   </div>
 
+  <script>
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      const splash = document.getElementById("splash");
+      if (splash) splash.style.display = "none";
+    }, 10000);
+  });
+</script>
+
   <script src="app.js"></script>
 
   <!-- Registramos el Service Worker para PWA -->
