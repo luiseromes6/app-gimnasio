@@ -98,4 +98,15 @@ button:hover {
   line-height: 1.2;
 }
 
+#splash-logo {
+  width: 120px;      /* ancho inicial */
+  height: auto;       /* mantiene proporción */
+  margin: 20px 0;     /* espacio arriba y abajo */
+}
+
+@media (max-width: 600px) {
+  #splash-logo {
+    width: 80px;      /* más pequeño en celulares */
+  }
+}
 
