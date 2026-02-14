@@ -1,8 +1,4 @@
-window.addEventListener("load", () => {
-  const splash = document.getElementById("splash");
-  if (splash) splash.style.display = "none";
-});
-
+ 
 
 document.addEventListener("DOMContentLoaded", () => {
 
