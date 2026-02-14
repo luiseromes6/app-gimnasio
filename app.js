@@ -70,4 +70,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+ // ================= Splash fade out =================
+const splash = document.getElementById("splash");
+if (splash) {
+  const duracion = 5000; // 5 segundos
+
+  setTimeout(() => {
+    splash.style.opacity = 0;                // fade out
+    setTimeout(() => splash.style.display = "none", 1000); // ocultar después del fade
+  }, duracion);
+}
+
 });
