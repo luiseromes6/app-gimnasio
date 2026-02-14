@@ -1,112 +1,60 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  max-width: 800px;
-  margin: 30px auto;
-  background: #fff;
-  padding: 20px 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-}
-
-h1 {
-  text-align: center;
-  color: #333;
-}
-
-.form-section {
-  margin-top: 30px;
-}
-
-input, button {
-  display: block;
-  width: 100%;
-  padding: 10px 12px;
-  margin: 8px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  font-size: 16px;
-}
-
-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-.mensaje {
-  margin-top: 10px;
-  color: green;
-  font-weight: bold;
-}
-
-.resultado {
-  margin-top: 15px;
-  padding: 10px;
-  background: #eef;
-  border-radius: 5px;
-}
-
-.resultado img {
-  max-width: 150px;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-/* Splash screen */
+/* ================= Splash screen ================= */
 #splash {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: red;
+  background: red;            /* color de fondo del splash */
   color: white;
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding-top: 18%;
+  justify-content: center;    /* centra verticalmente */
+  align-items: center;        /* centra horizontalmente */
   text-align: center;
 
+  padding: 10px;
   margin: 0;
   box-sizing: border-box;
   z-index: 999999;
+
+  /* efecto de transición al desaparecer */
+  opacity: 1;
+  transition: opacity 1s ease;
 }
 
+/* ================= Título ================= */
 #splash h1 {
   font-size: clamp(30px, 6vw, 55px);
-  margin: 0;
+  margin: 0 0 15px 0;       /* un poco más arriba del logo */
   line-height: 1.2;
 }
 
+/* ================= Logo grande animado ================= */
+#splash-logo {
+  width: 216px;             /* 120px + 80% */
+  height: auto;
+  margin: 10px 0;
+  animation: bounce 1.2s infinite alternate;
+}
+
+/* Rebote del logo */
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-15px); }
+}
+
+/* ================= Texto “Cargando...” ================= */
 #splash p {
   font-size: clamp(18px, 4vw, 24px);
-  margin: 5px 0 0 0;
+  margin: 10px 0 0 0;
   line-height: 1.2;
 }
 
-#splash-logo {
-  width: 120px;      /* ancho inicial */
-  height: auto;       /* mantiene proporción */
-  margin: 20px 0;     /* espacio arriba y abajo */
-}
-
+/* ================= Ajustes para móviles ================= */
 @media (max-width: 600px) {
-  #splash-logo {
-    width: 80px;      /* más pequeño en celulares */
-  }
+  #splash h1 { font-size: clamp(24px, 8vw, 40px); }
+  #splash p  { font-size: clamp(16px, 5vw, 22px); }
+  #splash-logo { width: 144px; }  /* 80px + 80% */
 }
-
