@@ -88,14 +88,23 @@ window.addEventListener("load", () => {
 
   <!-- ================= CAMBIO DE VISTAS (NUEVO) ================= -->
   <script>
-    function mostrarVista(id) {
-      document.querySelectorAll("[id^='vista-']")
-        .forEach(v => v.style.display = "none");
+function mostrarVista(id) {
+  // ocultar todas las vistas
+  document.querySelectorAll("[id^='vista-']")
+    .forEach(v => v.style.display = "none");
 
-      document.getElementById(id).style.display = "block";
-    }
-  </script>
+  // mostrar la vista seleccionada
+  document.getElementById(id).style.display = "block";
 
+  // limpiar resultados de búsqueda
+  const resultado = document.getElementById("resultado");
+  if (resultado) resultado.innerHTML = "";
+
+  // limpiar campo de búsqueda
+  const buscarNumero = document.getElementById("buscarNumero");
+  if (buscarNumero) buscarNumero.value = "";
+}
+</script>
 
   <script src="app.js"></script>
 
