@@ -126,3 +126,12 @@ button:hover {
   #splash p  { font-size: clamp(16px, 5vw, 22px); }
   #splash-logo { width: 144px; }  /* 80px + 80% */
 }
+
+
+form label {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
