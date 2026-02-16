@@ -72,7 +72,7 @@ formRegistro.addEventListener("submit", async function(e) {
         <p><b>Número:</b> ${data.numero}</p>
         <p><b>Nombre:</b> ${data.nombre}</p>
         <p><b>Teléfono:</b> ${data.telefono}</p>
-        <p><b>Fecha pago:</b> ${data.fechaPago}</p>
+        <p><b>Fecha pago:</b> ${formatearFecha(data.fechaPago)}</p>
         <p><b>Duración:</b> ${data.duracion} días</p>
         <p><b>Promoción:</b> ${data.promocion}</p>
       `;
