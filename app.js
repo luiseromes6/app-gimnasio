@@ -15,43 +15,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultado = document.getElementById("resultado");
 
   // REGISTRAR SOCIO
-  formRegistro.addEventListener("submit", async function(e) {
-    e.preventDefault();
+formRegistro.addEventListener("submit", async function(e) {
+  e.preventDefault();
 
-    const socio = {
-      numero: document.getElementById("numero").value,
-      nombre: document.getElementById("nombre").value,
-      telefono: document.getElementById("telefono").value,
-      fotoURL: document.getElementById("fotoURL").value,
-      fechaPago: document.getElementById("fechaPago").value,
-      duracion: document.getElementById("duracion").value,
-      promocion: document.getElementById("promocion").value
-    };
+  const socio = {
+    numero: document.getElementById("numero").value,
+    nombre: document.getElementById("nombre").value,
+    telefono: document.getElementById("telefono").value,
+    fotoURL: document.getElementById("fotoURL").value,
+    fechaPago: document.getElementById("fechaPago").value,
+    duracion: document.getElementById("duracion").value,
+    promocion: document.getElementById("promocion").value
+  };
 
-    try {
-      const res = await fetch(API_URL, {
-        method: "POST",
-        body: JSON.stringify({
-          action: "registrarSocio",
-          socio: socio
-        })
-      });
+  try {
+    const res = await fetch(API_URL, {
+      method: "POST",
+      body: JSON.stringify({
+        action: "registrarSocio",
+        socio: socio
+      })
+    });
 
-      const data = await res.json();
-      mensajeRegistro.textContent = data.message;
+    const data = await res.json();
+    mensajeRegistro.textContent = data.message;
 
-      if (data.success) formRegistro.reset();
+    if (data.success) {
+      formRegistro.reset();
 
-     // limpiar mensaje después de 3 segundos
-  setTimeout(() => {
-    mensajeRegistro.textContent = "";
-  }, 3000);
-}
-
-    } catch (error) {
-      mensajeRegistro.textContent = "Error al registrar socio";
+      // limpiar mensaje después de 3 segundos
+      setTimeout(() => {
+        mensajeRegistro.textContent = "";
+      }, 3000);
     }
-  });
+
+  } catch (error) {
+    mensajeRegistro.textContent = "Error al registrar socio";
+  }
+});
+
 
   // BUSCAR SOCIO
   btnBuscar.addEventListener("click", async function() {
