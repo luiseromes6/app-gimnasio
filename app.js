@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const formRegistro = document.getElementById("formRegistro");
   const mensajeRegistro = document.getElementById("mensajeRegistro");
 
+ // limpiar mensaje cuando usuario escribe
+formRegistro.addEventListener("input", () => mensajeRegistro.textContent = "");
+
   const btnBuscar = document.getElementById("btnBuscar");
   const resultado = document.getElementById("resultado");
 
@@ -37,6 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
       mensajeRegistro.textContent = data.message;
 
       if (data.success) formRegistro.reset();
+
+     // limpiar mensaje después de 3 segundos
+  setTimeout(() => {
+    mensajeRegistro.textContent = "";
+  }, 3000);
+}
 
     } catch (error) {
       mensajeRegistro.textContent = "Error al registrar socio";
