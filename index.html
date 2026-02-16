@@ -89,6 +89,7 @@ window.addEventListener("load", () => {
   <!-- ================= CAMBIO DE VISTAS (NUEVO) ================= -->
   <script>
 function mostrarVista(id) {
+
   // ocultar todas las vistas
   document.querySelectorAll("[id^='vista-']")
     .forEach(v => v.style.display = "none");
@@ -96,15 +97,22 @@ function mostrarVista(id) {
   // mostrar la vista seleccionada
   document.getElementById(id).style.display = "block";
 
-  // limpiar resultados de búsqueda
+  // ===== LIMPIAR FORMULARIO REGISTRO =====
+  const formRegistro = document.getElementById("formRegistro");
+  if (formRegistro) formRegistro.reset();
+
+  const mensajeRegistro = document.getElementById("mensajeRegistro");
+  if (mensajeRegistro) mensajeRegistro.textContent = "";
+
+  // ===== LIMPIAR BUSQUEDA =====
   const resultado = document.getElementById("resultado");
   if (resultado) resultado.innerHTML = "";
 
-  // limpiar campo de búsqueda
   const buscarNumero = document.getElementById("buscarNumero");
   if (buscarNumero) buscarNumero.value = "";
 }
 </script>
+
 
   <script src="app.js"></script>
 
