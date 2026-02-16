@@ -14,6 +14,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnBuscar = document.getElementById("btnBuscar");
   const resultado = document.getElementById("resultado");
 
+ // formatear fecha bonita
+function formatearFecha(fechaISO) {
+  if (!fechaISO) return "";
+
+  const fecha = new Date(fechaISO);
+
+  return fecha.toLocaleDateString("es-MX", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric"
+  });
+}
+
   // REGISTRAR SOCIO
 formRegistro.addEventListener("submit", async function(e) {
   e.preventDefault();
