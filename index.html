@@ -12,51 +12,93 @@
 </head>
 <body>
 
+  <!-- ================= SPLASH (igual que ahora) ================= -->
   <div id="splash">
-  <h1>App Gimnasio</h1>
-    <!-- Logo del gimnasio -->
-  <img src="icon-192.png" alt="Logo Gimnasio" id="splash-logo">
-  <p>Cargando...</p>
-</div>
+    <h1>App Gimnasio</h1>
+    <img src="icon-192.png" alt="Logo Gimnasio" id="splash-logo">
+    <p>Cargando...</p>
+  </div>
 
-  <div class="container">
+
+  <!-- ================= MENU PRINCIPAL (NUEVO) ================= -->
+  <div id="vista-inicio" class="container">
     <h1>Control de Socios</h1>
 
+    <button onclick="mostrarVista('vista-registro')">
+      Registrar Socio
+    </button>
+
+    <button onclick="mostrarVista('vista-buscar')">
+      Buscar Socio
+    </button>
+  </div>
+
+
+  <!-- ================= REGISTRAR SOCIO ================= -->
+  <div id="vista-registro" class="container" style="display:none;">
+
+    <h2>Registrar Socio</h2>
+
     <section class="form-section">
-      <h2>Registrar Socio</h2>
       <form id="formRegistro">
         <input type="text" id="numero" placeholder="Número de socio" required>
         <input type="text" id="nombre" placeholder="Nombre completo" required>
         <input type="text" id="telefono" placeholder="Teléfono">
         <input type="url" id="fotoURL" placeholder="URL de la foto">
-        <input type="date" id="fechaPago" placeholder="Fecha de pago">
+        <input type="date" id="fechaPago">
         <input type="number" id="duracion" placeholder="Duración (días)">
         <input type="text" id="promocion" placeholder="Promoción">
         <button type="submit">Registrar</button>
       </form>
+
       <div id="mensajeRegistro" class="mensaje"></div>
     </section>
 
+    <button onclick="mostrarVista('vista-inicio')">← Volver</button>
+  </div>
+
+
+  <!-- ================= BUSCAR SOCIO ================= -->
+  <div id="vista-buscar" class="container" style="display:none;">
+
+    <h2>Buscar Socio</h2>
+
     <section class="form-section">
-      <h2>Buscar Socio</h2>
       <input type="text" id="buscarNumero" placeholder="Número de socio">
       <button id="btnBuscar">Buscar</button>
       <div id="resultado" class="resultado"></div>
     </section>
+
+    <button onclick="mostrarVista('vista-inicio')">← Volver</button>
   </div>
 
+
+  <!-- ================= SCRIPT SPLASH ================= -->
   <script>
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      const splash = document.getElementById("splash");
-      if (splash) splash.style.display = "none";
-    }, 4000);
-  });
-</script>
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        const splash = document.getElementById("splash");
+        if (splash) splash.style.display = "none";
+      }, 4000);
+    });
+  </script>
+
+
+  <!-- ================= CAMBIO DE VISTAS (NUEVO) ================= -->
+  <script>
+    function mostrarVista(id) {
+      document.querySelectorAll("[id^='vista-']")
+        .forEach(v => v.style.display = "none");
+
+      document.getElementById(id).style.display = "block";
+    }
+  </script>
+
 
   <script src="app.js"></script>
 
-  <!-- Registramos el Service Worker para PWA -->
+
+  <!-- ================= SERVICE WORKER ================= -->
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
@@ -68,4 +110,5 @@
   </script>
 
 </body>
+
 </html>
