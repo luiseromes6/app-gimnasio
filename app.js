@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const mensajeRegistro = document.getElementById("mensajeRegistro");
 
  // limpiar mensaje cuando usuario escribe
-formRegistro.addEventListener("input", () => mensajeRegistro.textContent = "");
+// formRegistro.addEventListener("input", () => mensajeRegistro.textContent = "");
+
 
   const btnBuscar = document.getElementById("btnBuscar");
   const resultado = document.getElementById("resultado");
